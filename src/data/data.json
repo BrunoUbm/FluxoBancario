@@ -1,0 +1,60 @@
+{
+  "usuarios": [
+    {
+      "name": "Bruno",
+      "cpf": "46076049847",
+      "saldo": 2000,
+      "limiteConta": 200,
+      "id": 1
+    },
+    {
+      "name": "Maria",
+      "cpf": "12396030944",
+      "saldo": 4500,
+      "limiteConta": 300,
+      "id": 2
+    },
+    {
+      "name": "João",
+      "cpf": "46097010234",
+      "saldo": 4000,
+      "limiteConta": 400,
+      "id": 3
+    },
+    {
+      "name": "Leticia",
+      "cpf": "12340934029",
+      "saldo": 3500,
+      "limiteConta": 350,
+      "id": 4
+    },
+    {
+      "name": "Marta",
+      "cpf": "24095030929",
+      "saldo": 1500,
+      "limiteConta": 150,
+      "id": 5
+    },
+    {
+      "name": "Jordan",
+      "cpf": "12343009380",
+      "saldo": 4230,
+      "limiteConta": 423,
+      "id": 6
+    },
+    {
+      "name": "Matheus",
+      "cpf": "34509829345",
+      "saldo": 7603,
+      "limiteConta": 760.3,
+      "id": 7
+    },
+    {
+      "name": "Isabela",
+      "cpf": "43095020912",
+      "saldo": 1250,
+      "limiteConta": 125,
+      "id": 8
+    }
+  ]
+}

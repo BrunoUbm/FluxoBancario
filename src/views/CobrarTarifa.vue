@@ -2,7 +2,7 @@
     <div>
         <button class="sair" @click="Sair">Sair</button>
         <div class="main">
-            <!-- <h1>Valor da tarifa: <strong>R$ 19,90</strong></h1> -->
+            <h1>Valor da tarifa: <strong>R$ 19,90</strong></h1>
             <button class="btn" @click="CobrarTarifa">Cobrar tarifa</button>
             <ListarContas />
         </div>

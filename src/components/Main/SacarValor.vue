@@ -18,11 +18,11 @@ export default{
     },
     methods: {
         SacValue() {
-            const router = this.$route.params.id;
-            const ConvertSac = parseFloat(this.sac)
             const agora = new Date()
             const hora = agora.getHours();
             console.log(hora);
+            const ConvertSac = parseFloat(this.sac)
+            const router = this.$route.params.id;
 
 
             axios.get(`http://localhost:3000/usuarios/${router}`)
@@ -52,6 +52,7 @@ export default{
                     .catch((err) => {
                         console.log(err);
                     })
+                    alert('Saque efetuado com sucesso!')
                 }
                 else{
                     alert('Erro ao sacar! Verifique novamente o valor')
@@ -89,7 +90,7 @@ input{
     padding: 5px 10px 10px 20px;
     border-radius: 5px;
     border: solid;
-    width: 500px;
+    width: 30%;
     margin: 10px auto;
 }
 

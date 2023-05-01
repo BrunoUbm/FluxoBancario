@@ -21,6 +21,8 @@
 
     <ListarContas v-if="EnterRender"/>
 
+    <p class="tarifa" @click="Tarifa">Tarifa a ser cobrada</p>
+
   </div>
 </template>
 
@@ -42,6 +44,8 @@ export default{
       cpf: null,
       deposito: null,
       access: null,
+      month: null,
+      day: null
     }
   },
   props: {
@@ -85,6 +89,10 @@ export default{
 
     CreateAcc() {
       const ValidationInfo = () => {
+        const date = new Date()
+        const day = date.getDay()
+        const month = date.getMonth()
+
         const Reset = () => {
           this.name = null
           this.cpf = null
@@ -100,7 +108,9 @@ export default{
             name: this.name,
             cpf: this.cpf,
             saldo: ConvertDeposit,
-            limiteConta: this.deposito * 0.10
+            limiteConta: this.deposito * 0.10,
+            day: day,
+            month: month
           }
           axios.post('http://localhost:3000/usuarios', data)
           .then((res) => {
@@ -121,6 +131,9 @@ export default{
       }
       ValidationInfo()
     },
+    Tarifa() {
+      this.$router.push('/tarifa')
+    }
 
   }
 }
@@ -131,8 +144,8 @@ export default{
 .login{
   padding: 50px 0px;
   margin: 100px auto 0px;
-  width: 500px;
-  background-color: black;
+  width: 30%;
+  background-color: rgba(18, 0, 26, 0.7);
   color: white;
   border-radius: 20px;
   display: flex;
@@ -146,8 +159,8 @@ export default{
 .create{
   padding: 50px 0px;
   margin: 100px auto 0px;
-  width: 500px;
-  background-color: black;
+  width: 30%;
+  background-color: rgba(18, 0, 26, 0.7);
   color: white;
   border-radius: 20px;
   display: flex;
@@ -156,7 +169,8 @@ export default{
 }
 
 .user{
-  margin: 0px 80px;
+  width: 70%;
+  margin: 0 auto;
   border-radius: 5px;
   border-color: none;
   padding: 10px 5px;
@@ -165,26 +179,47 @@ export default{
 .Enter-Button{
   padding: 10px;
   font-size: 20px;
-  margin: 20px 200px;
+  margin: 20px auto;
+  width: 30%;
 }
 
+button{
+  background-color: rgb(155, 155, 155);
+  border: solid;
+  border-radius: 5px;
+}
+
+button:hover{
+  background-color: rgb(107, 107, 107);
+  transition: 0.3s;
+}
 .Create-Button{
   padding: 5px 20px;
   font-size: 20px;
-  margin: 20px 200px;
+  margin: 20px auto;
+  width: 30%;
 }
 
 .registro{
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 100%;
     margin: 0 auto;
     top: 0;
 }
 
+.tarifa{
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: solid;
+  width: 10%;
+  color: rgb(0, 36, 83);
+  cursor: pointer;
+}
 .inp-registro{
     padding: 10px;
-    margin: 5px 50px;
+    margin: 5px auto;
     border-radius: 5px;
+    width: 70%;
 }
 </style>

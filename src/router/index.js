@@ -11,6 +11,11 @@ const routes = [
     name: 'usuario',
     component: () => import('../views/MainPage'),
     props: true
+  },
+  {
+    path: '/tarifa',
+    name: 'tarifa',
+    component: () => import('@/views/CobrarTarifa')
   }
 ]
 

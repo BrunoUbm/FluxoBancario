@@ -1,10 +1,16 @@
 <template>
   <div class="body" style="margin: 0px;">
-    <header class="cabecalho">
-      <h2 class="nome space">{{ nome }}</h2>
-      <h3 class="id space">Número da conta: {{ id }}</h3>
-      <p class="saldo space">Saldo: R$ {{ saldo }}</p>
+    <header>
+      <div class="cabecalho">
+        <h2 class="nome space">{{ nome }}</h2>
+        <h3 class="id space">Número da conta: {{ id }}</h3>
+        <p class="saldo space">Saldo: R$ {{ saldo }}</p>
+      </div>
+      <button class="return" @click="ReturnLogin">Sair</button>
     </header>
+
+    <p class="limite"><strong>Seu limite é de: R$ {{ limite }}</strong></p>
+
     <div class="sub-header">
       <div class="sacar select" @click="Sacar">
         <p class="font-select">Sacar</p>
@@ -33,7 +39,7 @@ export default{
   components: {
     TransferirValor,
     DepositarValor,
-    SacarValor
+    SacarValor,
   },
 
   data() {
@@ -42,10 +48,11 @@ export default{
       cpf: null,
       id: null,
       saldo: null,
+      limite: null,
 
       transferir: false,
       depositar: false,
-      sacar: false
+      sacar: false,
     }
   },
 
@@ -69,6 +76,7 @@ export default{
           this.cpf = i.cpf
           this.saldo = i.saldo
           this.id = i.id
+          this.limite = i.limiteConta
         }
       });
     })
@@ -102,6 +110,9 @@ export default{
         this.depositar = false
       }
       renderElement()
+    },
+    ReturnLogin(){
+      this.$router.push('/')
     }
   }
 }
@@ -113,13 +124,24 @@ export default{
   padding-bottom: 20px;
 }
 
+header{
+  display: flex;
+  flex-direction: row;
+  background-color: #2a0030;
+  box-shadow: 8px 8px 10px 0px #38003f;
+}
+.limite{
+  margin-top: 20px;
+  font-size: 25px;
+  border-bottom: solid;
+  text-align: center;
+}
+
 .cabecalho{
   width: 100%;
   display: flex;
-  flex-direction: column;
-  background-color: #2a0030;
-  box-shadow: 8px 8px 10px 0px #38003f;
   color: white;
+  flex-direction: column;
 }
 
 .sub-header{
@@ -163,6 +185,22 @@ export default{
   font-size: 45px;
 }
 
+.return{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 15px;
+  font-size: 20px;
+  background-color:#45024e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.return:hover{
+  background-color: #54035f;
+  transform: scale(1.02);
+  transition: 0.3s;
+}
 .space{
   margin: 20px 20px;
   width: 40%;

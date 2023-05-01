@@ -31,13 +31,14 @@ export default {
                 return res.data
             })
             .then((dt) => {
+                console.log(dt.name);
                 const data = {
                     name: dt.name,
                     cpf: dt.cpf,
                     saldo: dt.saldo,
                     limiteConta: dt.limiteConta
                 }
-                if (ConvertDeposit > 0 && hora >= 8 && hora <= 18) {
+                if (ConvertDeposit > 0 && hora >= 8 && hora <= 17) {
                     axios.put(`http://localhost:3000/usuarios/${router}`, {
                     name: data.name,
                     cpf: data.cpf,
@@ -53,6 +54,7 @@ export default {
                     .catch((err) => {
                         console.log(err);
                     })
+                    alert('Deposito efetuado com sucesso!')
                 }
                 else{
                     alert('Erro ao depositar')
@@ -90,7 +92,7 @@ input{
     padding: 5px 10px 10px 20px;
     border-radius: 5px;
     border: solid;
-    width: 500px;
+    width: 30%;
     margin: 10px auto;
 }
 

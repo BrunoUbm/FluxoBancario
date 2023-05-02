@@ -34,14 +34,16 @@ export default{
                     name: dt.name,
                     cpf: dt.cpf,
                     saldo: dt.saldo,
-                    limiteConta: dt.limiteConta
+                    limiteConta: dt.limiteConta,
+                    month: dt.month
                 }
                 if (ConvertSac > 0 && ConvertSac <= data.limiteConta && data.saldo >= data.limiteConta  && hora >= 8 && hora <= 18) {
                     axios.put(`http://localhost:3000/usuarios/${router}`, {
                     name: data.name,
                     cpf: data.cpf,
                     saldo: data.saldo - ConvertSac,
-                    limiteConta: data.limiteConta
+                    limiteConta: data.limiteConta,
+                    month: data.month
                     })
                     .then((res) => {
                         return res

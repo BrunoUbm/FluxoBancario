@@ -61,7 +61,8 @@ export default{
                     name: dt.name,
                     cpf: dt.cpf,
                     saldo: dt.saldo,
-                    limiteConta: dt.limiteConta
+                    limiteConta: dt.limiteConta,
+                    month: dt.month
                 }
                 this.cpfSub = data.cpf
                 if (ConvertTransfer > 0 && ConvertTransfer <= data.saldo && ConvertTransfer < 1000 && this.cpf != this.cpfSub) {
@@ -71,7 +72,8 @@ export default{
                             name: data.name,
                             cpf: data.cpf,
                             saldo: data.saldo - ConvertTransfer,
-                            limiteConta: data.limiteConta
+                            limiteConta: data.limiteConta,
+                            month: data.month
                             })
                             .then((res) => {
                                 return res
@@ -101,7 +103,8 @@ export default{
                                         name: el.name,
                                         cpf: el.cpf,
                                         saldo: el.saldo + ConvertTransfer,
-                                        limiteConta: el.limiteConta
+                                        limiteConta: el.limiteConta,
+                                        month: dt.month
                                     })
                                     .then((rs) => {
                                         return rs
@@ -170,7 +173,8 @@ export default{
                         name: dt.name,
                         cpf: dt.cpf,
                         saldo: dt.saldo,
-                        limiteConta: dt.limiteConta
+                        limiteConta: dt.limiteConta,
+                        month: dt.month
                     }
                     this.cpfSub = dataT.cpf
                     if (ConvertTransfer <= dataT.saldo) {
@@ -180,7 +184,8 @@ export default{
                                 name: dataT.name,
                                 cpf: dataT.cpf,
                                 saldo: dataT.saldo - ConvertTransfer,
-                                limiteConta: dataT.limiteConta
+                                limiteConta: dataT.limiteConta,
+                                month: dataT.month
                                 })
                                 .then((res) => {
                                     return res

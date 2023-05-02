@@ -222,4 +222,18 @@ button:hover{
     border-radius: 5px;
     width: 70%;
 }
+
+@media screen and (max-width: 850px) {
+  .login {
+    width: 80%;
+  }
+
+  .tarifa{
+    width: 40%;
+  }
+
+  .create{
+    width: 80%;
+  }
+}
 </style>

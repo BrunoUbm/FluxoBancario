@@ -1,7 +1,7 @@
 <template>
     <div class="body">
         <div class="main">
-            <p>Digite a quantia que deseja depositar:</p>
+            <p>Digite o valor do deposito:</p>
             <input type="text" v-model="deposit" placeholder="Digite o valor...">
             <button @click="ValueDeposit">Depositar</button>
         </div>
@@ -110,5 +110,15 @@ button:hover{
     background-color: rgb(197, 172, 202);
     transition: .3s;
     transform: scale(1.1);
+}
+
+@media screen and (max-width: 850px) {
+  p{
+    font-size: 25px;
+  }
+
+  input{
+    width: 60%;
+  }
 }
 </style>

@@ -328,4 +328,25 @@ export default{
     border: solid;
 }
 
+@media screen and (max-width: 850px) {
+    .main{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-top: 100px;
+        text-align: center;
+    }
+
+    .list{
+        width: 100%;
+    }
+    .inputs{
+        width: 100%;
+    }
+
+    .button{
+        margin-top: 10px;
+    }
+}
+
 </style>

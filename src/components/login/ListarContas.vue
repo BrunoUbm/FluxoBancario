@@ -1,13 +1,13 @@
 <template>
     <div class="face">
         <div class="data" v-for="i in data" :key="i">
-            <p class="name">
+            <p class="name inp">
                 Nome: {{ i.name }}
             </p>
-            <p class="cpf">
+            <p class="cpf inp">
                 CPF: {{ i.cpf }}
             </p>
-            <p class="saldo">
+            <p class="saldo inp">
                 Saldo: {{ i.saldo }}
             </p>
 
@@ -67,4 +67,11 @@ export default {
     margin: 50px auto;
 }
 
+@media screen and (max-width: 850px) {
+
+    .face{
+        width: 100%;
+    }
+
+}
 </style>

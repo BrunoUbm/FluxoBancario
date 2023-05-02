@@ -1,7 +1,7 @@
 <template>
     <div class="body">
         <div class="main">
-            <p>Digite a quantia que deseja sacar:</p>
+            <p>Digite o valor do saque:</p>
             <input type="text" v-model="sac" placeholder="Digite o valor...">
             <button @click="SacValue">Sacar</button>
         </div>
@@ -108,4 +108,15 @@ button:hover{
     transition: .3s;
     transform: scale(1.1);
 }
+
+@media screen and (max-width: 850px) {
+  p{
+    font-size: 25px;
+  }
+
+  input{
+    width: 60%;
+  }
+}
+
 </style>

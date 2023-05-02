@@ -3,8 +3,9 @@
     <header>
       <div class="cabecalho">
         <h2 class="nome space">{{ nome }}</h2>
-        <h3 class="id space">Número da conta: {{ id }}</h3>
-        <p class="saldo space">Saldo: R$ {{ saldo }}</p>
+        <h3 class="id space">Conta: {{ id }}</h3>
+        <h4 class="saldo space">Saldo: R$ {{ saldo }}</h4>
+        <h2 style="color: white; text-align: end; margin-right: 50px;">{{ horas }}: {{ minutos }}</h2>
       </div>
       <button class="return" @click="ReturnLogin">Sair</button>
     </header>
@@ -53,6 +54,9 @@ export default{
       transferir: false,
       depositar: false,
       sacar: false,
+
+      horas: null,
+      minutos: null
     }
   },
 
@@ -64,6 +68,10 @@ export default{
   },
 
   created() {
+    const date = new Date()
+    this.horas = date.getHours()
+    this.minutos = date.getMinutes()
+
     const id = this.$route.params.id
     axios.get(`http://localhost:3000/usuarios`)
     .then((res) => {
@@ -216,6 +224,20 @@ header{
   border: solid;
   margin: 0 auto;
   height: 500px;
+}
+
+@media screen and (max-width: 850px) {
+  .cabecalho{
+    width: 100%;
+  }
+
+  .content{
+    height: 80vh;
+  }
+
+  .space{
+    font-size: 20px;
+  }
 }
 
 </style>

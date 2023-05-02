@@ -64,13 +64,13 @@ export default{
           return data.forEach(el => {
             if (el.cpf == this.access) {
               this.$router.push({name: 'usuario', params: {usuario: `${el.name}`, id: `${el.id}` }})
-              const dados = {
-                nome: el.name,
-                saldo: el.saldo,
-                id: el.id,
-                cpf: el.cpf
-              }
-              this.$store.commit('AccessUser', dados)
+              // const dados = {
+              //   nome: el.name,
+              //   saldo: el.saldo,
+              //   id: el.id,
+              //   cpf: el.cpf
+              // }
+              // this.$store.commit('AccessUser', dados)
             }
           });
           

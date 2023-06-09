@@ -26,7 +26,7 @@ export default {
             console.log(hora);
 
 
-            axios.get(`http://localhost:3000/usuarios/${router}`)
+            axios.get(`http://localhost:4000/usuarios/${router}`)
             .then((res) => {
                 return res.data
             })
@@ -39,8 +39,8 @@ export default {
                     limiteConta: dt.limiteConta,
                     month: dt.month
                 }
-                if (ConvertDeposit > 0 && hora >= 8 && hora <= 17) {
-                    axios.put(`http://localhost:3000/usuarios/${router}`, {
+                if (ConvertDeposit > 0 && hora >= 6 && hora <= 22) {
+                    axios.put(`http://localhost:4000/usuarios/${router}`, {
                     name: data.name,
                     cpf: data.cpf,
                     saldo: data.saldo + ConvertDeposit,
@@ -88,6 +88,7 @@ p{
     font-size: 30px;
     margin-bottom: 10px;
     margin: 0 auto;
+    color: white;
 }
 input{
     font-size: 25px;

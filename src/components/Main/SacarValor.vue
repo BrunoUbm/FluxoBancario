@@ -25,7 +25,7 @@ export default{
             const router = this.$route.params.id;
 
 
-            axios.get(`http://localhost:3000/usuarios/${router}`)
+            axios.get(`http://localhost:4000/usuarios/${router}`)
             .then((res) => {
                 return res.data
             })
@@ -37,8 +37,8 @@ export default{
                     limiteConta: dt.limiteConta,
                     month: dt.month
                 }
-                if (ConvertSac > 0 && ConvertSac <= data.limiteConta && data.saldo >= data.limiteConta  && hora >= 8 && hora <= 18) {
-                    axios.put(`http://localhost:3000/usuarios/${router}`, {
+                if (ConvertSac > 0 && ConvertSac <= (data.saldo + data.limiteConta) && data.saldo >= -data.limiteConta  && hora >= 8 && hora <= 22) {
+                    axios.put(`http://localhost:4000/usuarios/${router}`, {
                     name: data.name,
                     cpf: data.cpf,
                     saldo: data.saldo - ConvertSac,
@@ -86,6 +86,7 @@ p{
     font-size: 30px;
     margin-bottom: 10px;
     margin: 0 auto;
+    color: white;
 }
 input{
     font-size: 25px;

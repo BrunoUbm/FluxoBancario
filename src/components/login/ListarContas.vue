@@ -25,7 +25,7 @@ export default {
     },
 
     created() {
-        axios.get('http://localhost:3000/usuarios')
+        axios.get('http://localhost:4000/usuarios')
             .then((res) => {
                 return res.data
             })

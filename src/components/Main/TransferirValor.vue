@@ -52,7 +52,7 @@ export default{
             const ConvertTransfer = parseFloat(this.transfer)
             const router = this.$route.params.id;
 
-            axios.get(`http://localhost:3000/usuarios/${router}`)
+            axios.get(`http://localhost:4000/usuarios/${router}`)
             .then((res) => {
                 return res.data
             })
@@ -68,7 +68,7 @@ export default{
                 if (ConvertTransfer > 0 && ConvertTransfer <= data.saldo && ConvertTransfer < 1000 && this.cpf != this.cpfSub) {
                     const TransferirSaldo = () => {
                         if (this.cpf != data.cpf) {
-                            axios.put(`http://localhost:3000/usuarios/${router}`, {
+                            axios.put(`http://localhost:4000/usuarios/${router}`, {
                             name: data.name,
                             cpf: data.cpf,
                             saldo: data.saldo - ConvertTransfer,
@@ -92,14 +92,14 @@ export default{
 
                     const ReceberSaldo = () => {
                         const cpf = this.cpf
-                        axios.get(`http://localhost:3000/usuarios`)
+                        axios.get(`http://localhost:4000/usuarios`)
                         .then((res) => {
                             return res.data
                         })
                         .then((dat) => {
                             dat.forEach(el => {
                                 if (el.cpf == cpf && cpf != data.cpf) {
-                                    axios.put(`http://localhost:3000/usuarios/${el.id}`, {
+                                    axios.put(`http://localhost:4000/usuarios/${el.id}`, {
                                         name: el.name,
                                         cpf: el.cpf,
                                         saldo: el.saldo + ConvertTransfer,
@@ -164,7 +164,7 @@ export default{
             if (this.InitCpf == TresPrimeirosDigitos) {
                 const router = this.$route.params.id;
 
-                axios.get(`http://localhost:3000/usuarios/${router}`)
+                axios.get(`http://localhost:4000/usuarios/${router}`)
                 .then((res) => {
                     return res.data
                 })
@@ -180,7 +180,7 @@ export default{
                     if (ConvertTransfer <= dataT.saldo) {
                         const Transferir = () => {
                             if (this.cpf != dataT.cpf) {
-                                axios.put(`http://localhost:3000/usuarios/${router}`, {
+                                axios.put(`http://localhost:4000/usuarios/${router}`, {
                                 name: dataT.name,
                                 cpf: dataT.cpf,
                                 saldo: dataT.saldo - ConvertTransfer,
@@ -206,14 +206,14 @@ export default{
                         const Receber = () => {
                             const cpf = this.cpf
                             console.log(cpf);
-                            axios.get(`http://localhost:3000/usuarios`)
+                            axios.get(`http://localhost:4000/usuarios`)
                             .then((res) => {
                                 return res.data
                             })
                             .then((dat) => {
                                 dat.forEach(el => {
                                     if (el.cpf == cpf && cpf != dataT.cpf) {
-                                        axios.put(`http://localhost:3000/usuarios/${el.id}`, {
+                                        axios.put(`http://localhost:4000/usuarios/${el.id}`, {
                                             name: el.name,
                                             cpf: el.cpf,
                                             saldo: el.saldo + ConvertTransfer,
@@ -331,6 +331,9 @@ export default{
     padding: 25px;
     background-color: rgb(204, 204, 204);
     border: solid;
+}
+p{
+    color: white;
 }
 
 @media screen and (max-width: 850px) {

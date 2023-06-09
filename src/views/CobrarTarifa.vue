@@ -26,16 +26,17 @@ export default{
             const month = date.getMonth();
             const tarifa = 19.90
 
-            axios.get('http://localhost:3000/usuarios')
+            axios.get('http://localhost:4000/usuarios')
             .then((res) => {
                 return res.data
             })
             .then((data) => {
+                console.log(data);
                 data.forEach(el => {
                     if (el.month == month) {
                         console.log("Tarifa cobrada");
                         console.log(el);
-                        axios.put(`http://localhost:3000/usuarios/${el.id}`, {
+                        axios.put(`http://localhost:4000/usuarios/${el.id}`, {
                             name: el.name,
                             cpf: el.cpf,
                             saldo: el.saldo - tarifa,
@@ -69,7 +70,7 @@ export default{
 }
 
 .sair:hover{
-    background-color: rgb(29, 17, 34);
+    background-color: rgb(219, 219, 219);
     transition: 0.2s;
 }
 
@@ -81,6 +82,7 @@ export default{
 h1{
     margin-top: 100px;
     margin-bottom: 50px;
+    color: white;
 }
 
 .btn{

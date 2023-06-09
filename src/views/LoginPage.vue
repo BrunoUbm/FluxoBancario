@@ -56,7 +56,7 @@ export default{
   methods: {
     EnterAcc() {
       const SearchUser = () => {
-        axios.get('http://localhost:3000/usuarios')
+        axios.get('http://localhost:4000/usuarios')
         .then((res) => {
           return res.data
         })
@@ -90,7 +90,6 @@ export default{
     CreateAcc() {
       const ValidationInfo = () => {
         const date = new Date()
-        const day = date.getDay()
         const month = date.getMonth()
 
         const Reset = () => {
@@ -109,10 +108,9 @@ export default{
             cpf: this.cpf,
             saldo: ConvertDeposit,
             limiteConta: this.deposito * 0.10,
-            day: day,
             month: month
           }
-          axios.post('http://localhost:3000/usuarios', data)
+          axios.post('http://localhost:4000/usuarios', data)
           .then((res) => {
             alert('Conta Criada com sucesso!')
             return res
@@ -145,7 +143,7 @@ export default{
   padding: 50px 0px;
   margin: 100px auto 0px;
   width: 30%;
-  background-color: rgba(18, 0, 26, 0.7);
+  background-color: rgba(253, 253, 253, 0.7);
   color: white;
   border-radius: 20px;
   display: flex;

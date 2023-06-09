@@ -5,7 +5,7 @@
         <h2 class="nome space">{{ nome }}</h2>
         <h3 class="id space">Conta: {{ id }}</h3>
         <h4 class="saldo space">Saldo: R$ {{ saldo }}</h4>
-        <h2 style="color: white; text-align: end; margin-right: 50px;">{{ horas }}: {{ minutos }}</h2>
+        <h2 style="color: rgb(15, 125, 189); text-align: end; margin-right: 50px;">{{ horas }}: {{ minutos }}</h2>
       </div>
       <button class="return" @click="ReturnLogin">Sair</button>
     </header>
@@ -73,7 +73,7 @@ export default{
     this.minutos = date.getMinutes()
 
     const id = this.$route.params.id
-    axios.get(`http://localhost:3000/usuarios`)
+    axios.get(`http://localhost:4000/usuarios`)
     .then((res) => {
       return res.data
     })
@@ -128,15 +128,15 @@ export default{
 
 <style scoped>
 .body{
-  background-color: #957599;
+  background-color: #e6e6e6;
   padding-bottom: 20px;
 }
 
 header{
   display: flex;
   flex-direction: row;
-  background-color: #2a0030;
-  box-shadow: 8px 8px 10px 0px #38003f;
+  background-color: #c9c9c9;
+  box-shadow: 8px 8px 10px 0px #5e5e5e;
 }
 .limite{
   margin-top: 20px;
@@ -148,7 +148,7 @@ header{
 .cabecalho{
   width: 100%;
   display: flex;
-  color: white;
+  color: rgb(0, 0, 0);
   flex-direction: column;
 }
 
@@ -159,7 +159,9 @@ header{
   justify-content: space-evenly;
 }
 
-
+strong{
+  color: rgb(0, 0, 0);
+}
 .font-select{
   font-size: 20px;
 }
@@ -199,20 +201,20 @@ header{
   right: 0;
   padding: 10px 15px;
   font-size: 20px;
-  background-color:#45024e;
+  background-color:#0c0c0c;
   color: white;
   border: none;
   border-radius: 10px;
 }
 .return:hover{
-  background-color: #54035f;
+  background-color: #342b35;
   transform: scale(1.02);
   transition: 0.3s;
 }
 .space{
   margin: 20px 20px;
   width: 40%;
-  box-shadow: 8px 8px 10px 0px #c89bdd;
+  box-shadow: 8px 8px 10px 0px #242225;
   border-radius: 5px;
   padding: 15px;
   text-align: center;
